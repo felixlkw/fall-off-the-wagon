@@ -2,15 +2,22 @@
 
 **"실패해도 가치 있는 경험"을 제공하는 Web2.5 러닝 커뮤니티 DAO**
 
-## 📍 현재 개발 상황 (Week 1 완료)
+## 📍 현재 개발 상황 (Week 2 완료)
 
 ### ✅ 완성된 기능
 
-#### 🏗️ **백엔드 인프라**
+#### 🏗️ **백엔드 인프라** 
 - **Hono + Cloudflare Pages** 환경 구축
 - **Cloudflare D1** 데이터베이스 설계 및 마이그레이션
 - **PM2** 개발 서버 구성
 - **CORS** 활성화된 REST API
+
+#### ⛓️ **스마트 컨트랙트 시스템**
+- **QuestFactory** - 퀘스트 생성/관리/완료 (11KB 솔리디티 코드)
+- **EscrowVault** - 안전한 자금 관리 및 자동 분배 (12KB)
+- **MedalNFT** - 동적 NFT 메달 시스템 (16KB)
+- **Polygon zkEVM** 네트워크 호환성
+- **OpenZeppelin** 보안 표준 준수
 
 #### 🗄️ **데이터베이스 스키마**
 - `users` - 사용자 (소셜로그인 + 지갑 정보)
@@ -71,17 +78,18 @@
 - Cloudflare R2 (파일 저장)
 - PM2 (프로세스 관리)
 
-### **블록체인** (예정)
-- Polygon zkEVM
-- Hardhat + TypeScript
-- OpenZeppelin 라이브러리
+### **블록체인** ✅
+- Polygon zkEVM 테스트넷 준비
+- Hardhat + TypeScript + ethers.js v6
+- OpenZeppelin 보안 라이브러리
+- 가스 최적화된 배치 처리
 
 ## 📊 데이터 아키텍처
 
-### 온체인 데이터 (예정)
-- 퀘스트 스테이킹 기록
-- NFT 메달 소유권  
-- 정산 및 분배 기록
+### 온체인 데이터 (구현됨)
+- **QuestFactory**: 퀘스트 생성, 참여, 완료 관리
+- **EscrowVault**: 스테이킹 자금 보관 및 자동 분배  
+- **MedalNFT**: 골드/그레이 메달, 시즌 뱃지, 업그레이드 시스템
 
 ### 오프체인 데이터 (구현됨)
 - 사용자 프로필 및 설정
@@ -89,13 +97,13 @@
 - 크루 및 커뮤니티 데이터
 - AI 분석 결과
 
-## 🚀 다음 단계 (Week 2)
+## 🚀 다음 단계 (Week 3)
 
 ### 📋 우선순위 작업
-1. **Polygon zkEVM 환경** 설정
-2. **기본 스마트 컨트랙트** 구현
-3. **Web2.5 온보딩** 시스템 (Privy SDK)
-4. **퀘스트 생성/참여** UI 구현
+1. **Web2.5 온보딩** 시스템 (Privy SDK 통합)
+2. **Web3 지갑 연동** 및 스마트 컨트랙트 인터페이스
+3. **퀘스트 생성/참여** UI 구현
+4. **NFT 메달 표시** 시스템
 5. **러닝 데이터 연동** 준비 (Strava API)
 
 ## 💻 로컬 개발 환경
@@ -143,19 +151,23 @@ npm run test
 ## 📁 프로젝트 구조
 ```
 webapp/
-├── src/
-│   ├── index.tsx          # 메인 Hono 애플리케이션
+├── src/                  # Hono 백엔드
+│   ├── index.tsx          # 메인 애플리케이션
 │   └── renderer.tsx       # HTML 렌더러
-├── public/static/
-│   ├── app.js            # 프론트엔드 JavaScript
+├── public/static/        # 프론트엔드 자산
+│   ├── app.js            # JavaScript 유틸리티
 │   └── style.css         # 커스텀 CSS
-├── migrations/
-│   └── 0001_initial_schema.sql  # DB 스키마
-├── docs/                 # 설계 문서들
-├── seed.sql             # 테스트 데이터
-├── ecosystem.config.cjs # PM2 설정
-├── wrangler.jsonc       # Cloudflare 설정
-└── package.json         # 프로젝트 설정
+├── blockchain/          # 스마트 컨트랙트 ✅
+│   ├── contracts/        # Solidity 컨트랙트
+│   │   ├── QuestFactory.sol    # 퀘스트 관리 (11KB)
+│   │   ├── EscrowVault.sol     # 자금 보관 (12KB)
+│   │   └── MedalNFT.sol        # NFT 메달 (16KB)
+│   ├── test/            # 컨트랙트 테스트
+│   ├── scripts/         # 배포 스크립트
+│   └── hardhat.config.ts # Hardhat 설정
+├── migrations/          # D1 데이터베이스
+├── docs/               # 설계 문서들
+└── package.json        # 프로젝트 설정
 ```
 
 ## 🧪 테스트 데이터
@@ -183,8 +195,15 @@ webapp/
 
 ---
 
-**🚀 개발 진행률**: Week 1/8 완료 (12.5%)
-**📅 마지막 업데이트**: 2025-09-29
+**🚀 개발 진행률**: Week 2/8 완료 (25.0%)  
+**📅 마지막 업데이트**: 2025-09-29  
 **👨‍💻 개발자**: GenSpark AI Assistant
+
+### 🎊 Week 2 완료 하이라이트
+- ✅ **40KB+ 스마트 컨트랙트** 시스템 완성
+- ✅ **완전한 퀘스트 생명주기** 온체인 구현
+- ✅ **동적 NFT 시스템** (골드/그레이/시즌 메달)
+- ✅ **Hardhat 테스트 환경** 구축
+- ✅ **배포 자동화** 스크립트
 
 > "실패조차 가치가 되는 러닝 경험" - 작심삼일 RUN DAO
