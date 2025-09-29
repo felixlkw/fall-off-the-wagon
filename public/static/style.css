@@ -1,1 +1,98 @@
-h1 { font-family: Arial, Helvetica, sans-serif; }
+/* 작심삼일 RUN DAO - Custom Styles */
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Custom colors for RUN DAO branding */
+.bg-run-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.text-run-primary {
+  color: #667eea;
+}
+
+.border-run-primary {
+  border-color: #667eea;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styles */
+.btn-run {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:from-blue-600 hover:to-purple-700 transition-all duration-300;
+}
+
+.btn-run-secondary {
+  @apply bg-white text-blue-600 border-2 border-blue-600 font-semibold py-2 px-6 rounded-lg hover:bg-blue-50 transition-all duration-300;
+}
+
+/* Progress bars */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-500;
+}
+
+/* Status indicators */
+.status-success {
+  @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-pending {
+  @apply bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.status-failed {
+  @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium;
+}
+
+/* NFT medal styles */
+.nft-medal {
+  @apply w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-lg;
+}
+
+.nft-gold {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  color: #b8860b;
+}
+
+.nft-silver {
+  background: linear-gradient(135deg, #c0c0c0 0%, #e5e5e5 100%);
+  color: #696969;
+}
+
+.nft-bronze {
+  background: linear-gradient(135deg, #cd7f32 0%, #d2691e 100%);
+  color: #8b4513;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+}

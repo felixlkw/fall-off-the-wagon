@@ -1,34 +1,31 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "webapp",
+  "main": "src/index.tsx",
   "compatibility_date": "2025-09-29",
+  "compatibility_flags": ["nodejs_compat"],
   "pages_build_output_dir": "./dist",
-  "compatibility_flags": [
-    "nodejs_compat"
+
+  // D1 Database for local development (production DB will be added after creation)
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "webapp-production",
+      "database_id": "placeholder-will-be-updated-after-creation"
+    }
   ]
-  // "vars": {
-  //   "MY_VAR": "my-variable"
-  // },
+
+  // Future additions:
   // "kv_namespaces": [
   //   {
-  //     "binding": "MY_KV_NAMESPACE",
-  //     "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  //     "binding": "KV", 
+  //     "id": "kv-namespace-id"
   //   }
   // ],
   // "r2_buckets": [
   //   {
-  //     "binding": "MY_BUCKET",
-  //     "bucket_name": "my-bucket"
+  //     "binding": "R2",
+  //     "bucket_name": "webapp-bucket"
   //   }
-  // ],
-  // "d1_databases": [
-  //   {
-  //     "binding": "MY_DB",
-  //     "database_name": "my-database",
-  //     "database_id": ""
-  //   }
-  // ],
-  // "ai": {
-  //   "binding": "AI"
-  // }
+  // ]
 }
