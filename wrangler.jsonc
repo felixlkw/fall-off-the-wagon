@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "webapp",
-  "main": "src/index.tsx",
+  "name": "fall-off-the-wagon-dao",
+
   "compatibility_date": "2025-09-29",
   "compatibility_flags": ["nodejs_compat"],
   "pages_build_output_dir": "./dist",
@@ -10,8 +10,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "webapp-production",
-      "database_id": "placeholder-will-be-updated-after-creation"
+      "database_name": "fall-off-the-wagon-production",
+      "database_id": "8aa979af-344f-48ae-8264-7df1ec4f1657"
     }
   ]
 
